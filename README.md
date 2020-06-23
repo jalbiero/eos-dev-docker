@@ -14,7 +14,6 @@ a smart contract:
 - CMake
 - Vim
 - Midnight Commander
-- Pico
 - Git
 
 For more information about **FETCH_ALL** parameter see comments inside *Makefile*
