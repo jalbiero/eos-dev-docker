@@ -1,4 +1,4 @@
-# Copyright (c) 2020, jalbiero, all rights reserved.
+# Copyright (c) 2020/2021, jalbiero, all rights reserved.
 #
 # The MIT License
 #
@@ -20,8 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-DKR_VERSION = 1.0.0
-EOS_VERSION = 2.0.6
+DKR_VERSION = 1.1.0
+EOS_VERSION = 2.0.10
 CDT_VERSION = 1.7.0
 
 FULL_VERSION = v$(EOS_VERSION)-$(CDT_VERSION)-$(DKR_VERSION)
@@ -74,8 +74,12 @@ build-image: get_eos_source get_cdt_package
         -t jalbiero/eosdev .
 
 
-push-image:
+push-image: test-image
 	docker tag jalbiero/eosdev jalbiero/eosdev:$(FULL_VERSION)
 	docker push jalbiero/eosdev:$(FULL_VERSION)
 	docker tag jalbiero/eosdev jalbiero/eosdev:latest
 	docker push jalbiero/eosdev:latest
+
+
+test-image:
+	@echo TODO
