@@ -10,7 +10,7 @@ $ make [ init | [ build | clean] [PROJECT_NAME=<project name>] ]
 `
 
 - **init**: This target is only needed once. It will generate a new project in a subdirectory.
-- **build**: Builds the generated Hello project
+- **build**: Builds the generated project
 - **clean**: Cleans-up the build information
 
 If the project name is not specified, *hello* will be used.
