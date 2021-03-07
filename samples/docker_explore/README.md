@@ -7,6 +7,3 @@ Just a simple way to explore the docker image via Bash or Midnight Commander
 `
 $ make [ explore-bash | explore-mc ]
 `
-
-
-
