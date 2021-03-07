@@ -24,17 +24,22 @@ SAMPLE_NAME = eosio-init
 
 AS_HOST = --user $(shell id -u):$(shell id -g)
 
-DOCKER_VERSION = latest
+DOCKER_VERSION ?= latest
 DOCKER_CONTAINER = ${SAMPLE_NAME}-sample
 DOCKER_WORK_DIR = /opt/${SAMPLE_NAME}
 DOCKER_COMMON = -v `pwd`:${DOCKER_WORK_DIR} --name ${DOCKER_CONTAINER} -w ${DOCKER_WORK_DIR} jalbiero/eosdev:${DOCKER_VERSION}
 DOCKER_RUN = docker run ${AS_HOST} ${DOCKER_COMMON}
 
-build: docker-stop
-	${DOCKER_RUN} bash -c "cd hello/build && cmake .. && make" 
-	
+PROJECT_NAME ?= hello
+
 init: docker-stop
-	${DOCKER_RUN} bash -c "eosio-init -path=. -project=hello"
-	 
+	${DOCKER_RUN} bash -c "eosio-init -path=. -project=${PROJECT_NAME}"
+
+build: docker-stop
+	${DOCKER_RUN} bash -c "cd ${PROJECT_NAME}/build && cmake .. && make" 
+	
+clean: docker-stop
+	${DOCKER_RUN} bash -c "cd ${PROJECT_NAME}/build && make clean" 
+
 docker-stop:
 	@-docker rm -f ${DOCKER_CONTAINER}

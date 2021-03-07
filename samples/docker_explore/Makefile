@@ -22,7 +22,7 @@
 
 SAMPLE_NAME = explore
 
-DOCKER_VERSION = latest
+DOCKER_VERSION ?= latest
 DOCKER_CONTAINER = ${SAMPLE_NAME}-sample
 DOCKER_COMMON = --name ${DOCKER_CONTAINER} jalbiero/eosdev:${DOCKER_VERSION}
 DOCKER_RUN = docker run -it ${DOCKER_COMMON}

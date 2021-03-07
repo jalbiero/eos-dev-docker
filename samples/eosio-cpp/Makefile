@@ -24,14 +24,19 @@ SAMPLE_NAME = eosio-cpp
 
 AS_HOST = --user $(shell id -u):$(shell id -g)
 
-DOCKER_VERSION = latest
+DOCKER_VERSION ?= latest
 DOCKER_CONTAINER = ${SAMPLE_NAME}-sample
 DOCKER_WORK_DIR = /opt/${SAMPLE_NAME}
-DOCKER_COMMON = -v `pwd`:${DOCKER_WORK_DIR} --name ${DOCKER_CONTAINER} -w ${DOCKER_WORK_DIR} jalbiero/eosdev:${DOCKER_VERSION}
-DOCKER_RUN = docker run ${AS_HOST} ${DOCKER_COMMON}
+DOCKER_COMMON = ${AS_HOST} -v `pwd`:${DOCKER_WORK_DIR} --name ${DOCKER_CONTAINER} -w ${DOCKER_WORK_DIR} jalbiero/eosdev:${DOCKER_VERSION}
 
 build: docker-stop
-	 ${DOCKER_RUN} bash -c "eosio-cpp hello.cpp -o hello.wasm"
-	
+	 docker run ${DOCKER_COMMON} bash -c "eosio-cpp hello.cpp -o hello.wasm"
+
+clean: 
+	rm -f hello.wasm hello.abi
+
+bash: docker-stop
+	docker run -it ${DOCKER_COMMON} bash
+
 docker-stop:
 	@-docker rm -f ${DOCKER_CONTAINER}
