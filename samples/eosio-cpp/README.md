@@ -1,10 +1,10 @@
-# Compile a simple sample smart contract
+# Compile a simple smart contract sample
 
 This is a minimal contract from the following official tutorial:
 
 https://developers.eos.io/welcome/latest/smart-contract-guides/hello-world
 
-You can start a new bash session inside a docker container and follow the tutorial (see below) or you can just compile the file via the provided Makefile.
+You can start a new bash session inside a docker container and follow the tutorial (see below) or you can just compile the file via the provided Makefile without dealing with docker management directives.
 
 ## Syntax to compile the contract
 
