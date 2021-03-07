@@ -9,7 +9,7 @@ The created project is visible from docker outside (the current directory is mou
 $ make [ init | [ build | clean] [PROJECT_NAME=<project name>] ]
 `
 
-- **init**: This target is only need it once. It will generate a new project in a subdirectory.
+- **init**: This target is only needed once. It will generate a new project in a subdirectory.
 - **build**: Builds the generated Hello project
 - **clean**: Cleans-up the build information
 
