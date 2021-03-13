@@ -114,6 +114,8 @@ ENV PATH="${EOSIO_ROOT}/bin:${PATH}"
 ENV CC=clang
 ENV CXX=clang++
 ENV CTEST_OUTPUT_ON_FAILURE=1
+ENV EOSIO_CONTRACTS="/usr/local/src/eos/build/unittests/contracts"
+
 
 WORKDIR /
 
