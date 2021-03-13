@@ -1,6 +1,6 @@
 # Nodeos usage
 
-This simple example shows how to run a node using the development docker.
+This simple example shows how to run a non producer node using the development docker.
 
 The node can be configured via the following files:
 
@@ -10,5 +10,5 @@ The node can be configured via the following files:
 ## Syntax
 
 `
-$ make [ start | stop ]
+$ make [ start | start-detached | stop | tail-detached-logs ]
 `

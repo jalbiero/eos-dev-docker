@@ -22,17 +22,19 @@
 
 SAMPLE_NAME = node-usage
 
+NODEOS_HOME=/root/.local/share/eosio/nodeos
+
 DOCKER_VERSION ?= latest
 DOCKER_CONTAINER = ${SAMPLE_NAME}-sample
 
 DOCKER_COMMON = \
   --sig-proxy=true \
   --name ${DOCKER_CONTAINER} \
-  -v `pwd`/eosio/nodeos:/root/.local/share/eosio/nodeos \
+  -v `pwd`/eosio/nodeos:${NODEOS_HOME} \
   -p 127.0.0.1:8888:8888 \
   -p 9876:9876 \
   jalbiero/eosdev:${DOCKER_VERSION} \
-  nodeos
+  nodeos --genesis-json ${NODEOS_HOME}/config/genesis.json
 
 start: stop
 	docker run -t ${DOCKER_COMMON}
