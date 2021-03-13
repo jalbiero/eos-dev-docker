@@ -4,9 +4,9 @@ This simple example shows how to run a non producer node using the development d
 
 The node can be configured via the following files:
 
-- eosio/nodeos/config/config.ini
-- eosio/nodeos/config/genesis.json
-- eosio/nodeos/config/protocol_features/*.json
+- [eosio/nodeos/config/config.ini](./eosio/nodeos/config/config.ini)
+- [eosio/nodeos/config/genesis.json](./eosio/nodeos/config/genesis.json)
+- [eosio/nodeos/config/protocol_features/*.json](./eosio/nodeos/config/protocol_features)
 
 ## Syntax
 
