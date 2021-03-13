@@ -13,3 +13,8 @@ The node can be configured via the following files:
 `
 $ make [ start | start-detached | stop | tail-detached-logs ]
 `
+
+- **start**: Starts a non producer node (CTRL+C to quit/stop)
+- **start-detached**: Starts a non producer node in background
+- **stop**: Stops a running node
+- **tail-detached-logs**: Follows the logs of a detached node
