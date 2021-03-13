@@ -25,18 +25,24 @@ SAMPLE_NAME = node-usage
 DOCKER_VERSION ?= latest
 DOCKER_CONTAINER = ${SAMPLE_NAME}-sample
 
+DOCKER_COMMON = \
+  --sig-proxy=true \
+  --name ${DOCKER_CONTAINER} \
+  -v `pwd`/eosio/nodeos:/root/.local/share/eosio/nodeos \
+  -p 127.0.0.1:8888:8888 \
+  -p 9876:9876 \
+  jalbiero/eosdev:${DOCKER_VERSION} \
+  nodeos
 
 start: stop
-	docker run \
-		-t \
-		--sig-proxy=true \
-		--name ${DOCKER_CONTAINER} \
-		-v `pwd`/eosio/nodeos:/root/.local/share/eosio/nodeos \
-		-p 127.0.0.1:8888:8888 \
-		-p 9876:9876 \
-		jalbiero/eosdev:${DOCKER_VERSION} \
-		nodeos 
+	docker run -t ${DOCKER_COMMON}
+
+start-detached: stop
+	docker run -d ${DOCKER_COMMON}
+	
+tail-detached-logs:
+	docker logs -f ${DOCKER_CONTAINER}
 
 stop:
-	docker stop ${DOCKER_CONTAINER}
-	docker rm -f ${DOCKER_CONTAINER}
+	-docker stop ${DOCKER_CONTAINER}
+	-docker rm -f ${DOCKER_CONTAINER}
