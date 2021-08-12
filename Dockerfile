@@ -32,9 +32,11 @@ RUN apt-get update && \
         autotools-dev \
         bzip2 \
         clang \
+        cmake \
         curl \
         doxygen \
         git \
+        gnupg \
         graphviz \
         libbz2-dev \
         libcurl4-gnutls-dev \
@@ -44,6 +46,7 @@ RUN apt-get update && \
         libtool \
         libusb-1.0-0-dev \
         llvm-7-dev \
+        lsb-release \
         make \
         patch \
         pkg-config \
@@ -62,7 +65,6 @@ WORKDIR /usr/local/src/eos
 RUN ./scripts/eosio_build.sh -i /usr/local/eos && \
     build/unittests/unit_test --show_progress && \
     ./scripts/eosio_install.sh
-    
 
 ################################################################################
 FROM ubuntu:18.04
@@ -93,6 +95,7 @@ RUN apt-get update && \
         lldb-7 \
         llvm-7-dev \
         make \
+        cmake \
         mc \
         vim \
         zlib1g-dev && \
