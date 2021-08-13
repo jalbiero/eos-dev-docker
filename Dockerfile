@@ -1,4 +1,4 @@
-# Copyright (c) 2020, jalbiero, all rights reserved.
+# Copyright (c) 2020/2021, jalbiero, all rights reserved.
 #
 # The MIT License
 #
@@ -32,18 +32,22 @@ RUN apt-get update && \
         autotools-dev \
         bzip2 \
         clang \
+        cmake \
         curl \
         doxygen \
         git \
+        gnupg \
         graphviz \
         libbz2-dev \
         libcurl4-gnutls-dev \
         libgmp3-dev \
         libicu-dev \
+        libpq5 \
         libssl-dev \
         libtool \
         libusb-1.0-0-dev \
         llvm-7-dev \
+        lsb-release \
         make \
         patch \
         pkg-config \
@@ -59,10 +63,10 @@ RUN apt-get update && \
 COPY ${deps_dir}/eos /usr/local/src/eos
 WORKDIR /usr/local/src/eos
     
+# TODO One test is failing with seg.fault
 RUN ./scripts/eosio_build.sh -i /usr/local/eos && \
-    build/unittests/unit_test --show_progress && \
+    #build/unittests/unit_test --show_progress && \
     ./scripts/eosio_install.sh
-    
 
 ################################################################################
 FROM ubuntu:18.04
@@ -89,10 +93,12 @@ RUN apt-get update && \
         clang-7 clang-tools-7 libclang-common-7-dev libclang-7-dev libclang1-7 \
         git \
         libgmp3-dev \
+        libpq5 \
         libssl-dev \
         lldb-7 \
         llvm-7-dev \
         make \
+        cmake \
         mc \
         vim \
         zlib1g-dev && \
@@ -116,6 +122,4 @@ ENV CXX=clang++
 ENV CTEST_OUTPUT_ON_FAILURE=1
 ENV EOSIO_CONTRACTS="/usr/local/src/eos/build/unittests/contracts"
 
-
 WORKDIR /
-

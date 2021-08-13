@@ -22,3 +22,6 @@ For more information about **FETCH_ALL** parameter see comments inside *Makefile
 make [ build-image [ FETCH_ALL=1 ] | push-image ]
 
 ```
+
+## Samples
+[Here some small projects that show the docker usage](./samples/README.md)
