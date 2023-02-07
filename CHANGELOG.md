@@ -1,6 +1,18 @@
 # Changelog
 
-## Pending (v2.1.0-1.8.1-1.3.0)
+## v2.1.0-1.8.1-1.3.1
+
+BREAKING CHANGES:
+
+FEATURES:
+
+IMPROVEMENTS:
+- Add final note on README
+- Update link to develpment portal
+
+BUG FIXES:
+
+## v2.1.0-1.8.1-1.3.0
 
 BREAKING CHANGES:
 

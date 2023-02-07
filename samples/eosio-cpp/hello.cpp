@@ -1,5 +1,5 @@
 // Sample from:
-// https://developers.eos.io/welcome/latest/smart-contract-guides/hello-world
+// https://developers.eos.io/welcome/latest/getting-started-guide/hello-world
 
 #include <eosio/eosio.hpp>
 
