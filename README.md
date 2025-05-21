@@ -1,3 +1,6 @@
+Repository archived, new location: https://codeberg.org/jalbiero/eos-dev-docker
+---
+
 # eos-dev-docker
 Development docker for [EOSIO Blockchain](https://github.com/EOSIO) smart contracts
 
