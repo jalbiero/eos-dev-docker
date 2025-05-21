@@ -1,4 +1,4 @@
-Repository archived, new location: https://codeberg.org/jalbiero/eos-dev-docker
+Archived repository, new location: https://codeberg.org/jalbiero/eos-dev-docker
 ---
 
 # eos-dev-docker
